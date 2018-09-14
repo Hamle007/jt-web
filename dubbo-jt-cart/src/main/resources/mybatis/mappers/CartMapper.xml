@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+	namespace作用
+	1.需要与Mapper接口路径保持一致
+	2.唯一标识映射文件的 namespace数值不能重复
+  -->
+<mapper namespace="com.jt.cart.mapper.CartMapper">
+	
+	<update id="updateCartNum" parameterType="cart">
+		update tb_cart set num = #{num},updated=#{updated}
+		where user_id = #{userId} and item_id = #{itemId}
+	</update>
+	
+	<select id="findCartByUI" resultType="cart">
+		select * from tb_cart
+		where user_id=#{userId} and item_id=#{itemId}
+	</select>
+	 
+</mapper>
